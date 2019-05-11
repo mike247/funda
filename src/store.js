@@ -10,6 +10,7 @@ export default new Vuex.Store({
     houseData: {},
     apiAccessKey: 'ac1b0b1572524640a0ecc54de453ea9f',
     houseId: '6289a7bb-a1a8-40d5-bed1-bff3a5f62ee6',
+    googleApiKey: process.env.VUE_APP_GOOGLE_API_KEY,
     houseError: false,
     disableGetHouseButton: false
   },
@@ -32,6 +33,7 @@ export default new Vuex.Store({
     async getHouseData ({ dispatch, state }) {
       try {
         dispatch('updateDisableGetHouseButton', true)
+        dispatch('updateHouseError', false)
         const houseData = await fundaApi.getHouseData(state.apiAccessKey, state.houseId)
         dispatch('updateHouseData', houseData.data)
         router.push('House')
