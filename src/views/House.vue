@@ -1,7 +1,8 @@
 <template>
   <v-container fill-height ma-0 pa-0>
-    <iframe class="house_map-size" frameborder="0" style="border:0" :src="googleMapsSrc">
-    </iframe>
+    <GmapMap :center="marker" :zoom="16" map-type-id="terrain" class="house_map-size">
+      <GmapMarker :position="marker" :clickable="true" :draggable="true" @click="center=m.position" />
+    </GmapMap>
   </v-container>
 </template>
 <style scoped>
@@ -17,16 +18,14 @@
     name: 'House',
     computed: {
       ...mapState({
-        address: state => state.houseData.Adres,
-        city: state => state.houseData.Plaats,
-        postCode: state => state.houseData.Postcode,
-        googleApiKey: state => state.googleApiKey
+        longtitude: state => state.houseData.WGS84_X,
+        latitude: state => state.houseData.WGS84_Y
       }),
-      houseLocation: function () {
-        return `${this.address.split(' ').join('+')}+${this.city.split(' ').join('+')}+${this.postCode.split(' ').join('+')}`
-      },
-      googleMapsSrc: function () {
-        return `https://www.google.com/maps/embed/v1/place?key=${this.googleApiKey}&q=${this.houseLocation}`
+      marker: function () {
+        return {
+          lat: this.latitude,
+          lng: this.longtitude
+        }
       }
     }
   }
