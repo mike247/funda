@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const http = axios.create({
-  baseURL: 'http://partnerapi.funda.nl',
+  baseURL: 'http://localhost:3000/api',
   timeout: 8000
 })
 
@@ -20,7 +20,7 @@ const GET = (http, url) => {
 }
 
 function getHouseData (accessKey, houseId) {
-  return GET(http, `/feeds/Aanbod.svc/json/detail/${accessKey}/koop/${houseId}/`)
+  return GET(http, `/access/${accessKey}/house/${houseId}`)
 }
 
 export default {
