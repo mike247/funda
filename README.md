@@ -7,7 +7,7 @@ npm install
 ```
 
 ### To Run
-To compile and hot load the front end run
+After going through project setup, to compile and hot load the front end run
 ```
 npm run serve
 ```

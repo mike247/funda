@@ -1,6 +1,6 @@
 {
   "name": "funda_code_challange",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "scripts": {
     "serve": "vue-cli-service serve",
     "start-server": "node ./server/index",
@@ -28,6 +28,7 @@
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
+    "eslint-plugin-html": "^5.0.3",
     "eslint-plugin-vue": "^5.0.0",
     "lint-staged": "^8.1.5",
     "stylus": "^0.54.5",

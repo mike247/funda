@@ -19,7 +19,7 @@ export default new Vuex.Store({
     },
     async getHouseData ({ commit, state }) {
       const houseData = await fundaApi.getHouseData(state.apiAccessKey, state.houseId)
-      console.log(houseData)
+      commit('setHouseData', houseData.data)
     }
   },
   mutations: {

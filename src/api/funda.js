@@ -5,6 +5,7 @@ const http = axios.create({
   timeout: 8000
 })
 
+// Generalizes Get request for a connection
 const GET = (http, url) => {
   try {
     return http.get(url).then(res => {
@@ -19,6 +20,7 @@ const GET = (http, url) => {
   }
 }
 
+// Call our small service to get the house data
 function getHouseData (accessKey, houseId) {
   return GET(http, `/access/${accessKey}/house/${houseId}`)
 }
