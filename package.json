@@ -1,11 +1,13 @@
 {
   "name": "funda_code_challange",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test:e2e": "vue-cli-service test:e2e"
+    "test:e2e": "vue-cli-service test:e2e",
+    "versionbump:feature": "npm version minor --no-git-tag-version",
+    "versionbump:fix": "npm version patch --no-git-tag-version"
   },
   "dependencies": {
     "core-js": "^2.6.5",
