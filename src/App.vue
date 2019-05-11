@@ -1,38 +1,25 @@
 <template>
-  <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
+  <v-app id="inspire" dark>
+    <v-toolbar app fixed clipped-left>
+      <v-toolbar-title>Funda House Viewer 3000</v-toolbar-title>
     </v-toolbar>
-
     <v-content>
-      <HelloWorld/>
+      <v-container fluid fill-height>
+        <v-layout justify-center align-center>
+          <router-view></router-view>
+        </v-layout>
+      </v-container>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  },
-  data () {
-    return {
-      //
-    }
+  data: () => ({
+    drawer: null
+  }),
+  props: {
+    source: String
   }
 }
 </script>
