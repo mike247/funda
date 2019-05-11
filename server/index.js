@@ -30,8 +30,8 @@ const init = async () => {
           return response.data
         })
         .catch(function (error) {
-          // handle error
-          console.log(error)
+          console.log('Something went wrong')
+          return error
         })
     }
   })
