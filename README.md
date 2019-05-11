@@ -7,14 +7,15 @@ To install the npm dependencies run command
 npm install
 ```
 
-This app uses google maps and therefore requires a google maps api Key
+This app uses google maps and therefore requires a google maps api Key.
+
 For security reasons this is not stored in the repo
 
 To set this up complete the following steps
 
  1) Create a '.env.development' file at the root level of the repo
  2) add 'VUE_APP_GOOGLE_API_KEY=' to the first line
- 3) Paste an api Key with permissions to access the google maps api after the '='
+ 3) Paste an api Key with permissions to access the google maps JS api after the '='
 
 ```
 VUE_APP_GOOGLE_API_KEY=123awkn1231
@@ -31,20 +32,9 @@ To run the back end, in a seperate terminal run
 npm run start-server
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
 
 ### Lints and fixes files
 ```
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
