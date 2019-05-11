@@ -8,7 +8,9 @@ export default new Vuex.Store({
   state: {
     houseData: {},
     apiAccessKey: 'ac1b0b1572524640a0ecc54de453ea9f',
-    houseId: '6289a7bb-a1a8-40d5-bed1-bff3a5f62ee6'
+    houseId: '6289a7bb-a1a8-40d5-bed1-bff3a5f62ee6',
+    houseError: false,
+    disableGetHouseButton: false
   },
   actions: {
     updateAccessKey ({ commit }, key) {
@@ -17,9 +19,24 @@ export default new Vuex.Store({
     updateHouseId ({ commit }, id) {
       commit('setHouseId', id)
     },
-    async getHouseData ({ commit, state }) {
-      const houseData = await fundaApi.getHouseData(state.apiAccessKey, state.houseId)
-      commit('setHouseData', houseData.data)
+    updateHouseData ({ commit }, data) {
+      commit('setHouseData', data)
+    },
+    updateHouseError ({ commit }, error) {
+      commit('setHouseError', error)
+    },
+    updateDisableGetHouseButton ({ commit }, disable) {
+      commit('setDisableGetHouseButton', disable)
+    },
+    async getHouseData ({ dispatch, state }) {
+      try {
+        dispatch('updateDisableGetHouseButton', true)
+        const houseData = await fundaApi.getHouseData(state.apiAccessKey, state.houseId)
+        dispatch('updateHouseData', houseData.data)
+      } catch (e) {
+        dispatch('updateHouseError', true)
+        dispatch('updateDisableGetHouseButton', false)
+      }
     }
   },
   mutations: {
@@ -31,6 +48,12 @@ export default new Vuex.Store({
     },
     setHouseId (state, id) {
       state.houseId = id
+    },
+    setHouseError (state, error) {
+      state.houseError = error
+    },
+    setDisableGetHouseButton (state, disable) {
+      state.disableGetHouseButton = disable
     }
   }
 })
