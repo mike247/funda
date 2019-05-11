@@ -4,11 +4,7 @@
       <v-toolbar-title>Funda House Viewer 3000</v-toolbar-title>
     </v-toolbar>
     <v-content>
-      <v-container fluid fill-height>
-        <v-layout justify-center align-center>
-          <router-view></router-view>
-        </v-layout>
-      </v-container>
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>
