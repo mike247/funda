@@ -7,8 +7,10 @@
           <v-text-field label="Regular" v-model="houseId"></v-text-field>
         </v-form>
       </div>
-      <v-btn color="info" dark large @click="getHouseData">Get House Data</v-btn>
-      <p>{{houseData}}</p>
+      <v-btn :disabled="disableGetHouseButton" color="info" dark large @click="getHouseData">Get House Data</v-btn>
+      <v-alert v-model="houseError" type="error" outline>
+        Something has gone wrong
+      </v-alert>
     </v-layout>
   </v-container>
 </template>
@@ -22,10 +24,11 @@
   import { mapState } from 'vuex'
 
   export default {
-    name: 'MainViewer',
+    name: 'Home',
     computed: {
       ...mapState({
-        houseData: state => state.houseData
+        houseData: state => state.houseData,
+        disableGetHouseButton: state => state.disableGetHouseButton
       }),
       houseId: {
         get () {
@@ -33,6 +36,14 @@
         },
         set (value) {
           this.$store.dispatch('updateHouseId', value)
+        }
+      },
+      houseError: {
+        get () {
+          return this.$store.state.houseError
+        },
+        set (value) {
+          this.$store.dispatch('updateHouseError', value)
         }
       }
     },
