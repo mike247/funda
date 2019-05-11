@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import fundaApi from './api/funda'
+import router from './router'
 
 Vue.use(Vuex)
 
@@ -33,6 +34,7 @@ export default new Vuex.Store({
         dispatch('updateDisableGetHouseButton', true)
         const houseData = await fundaApi.getHouseData(state.apiAccessKey, state.houseId)
         dispatch('updateHouseData', houseData.data)
+        router.push('House')
       } catch (e) {
         dispatch('updateHouseError', true)
         dispatch('updateDisableGetHouseButton', false)
