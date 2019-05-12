@@ -49,5 +49,9 @@ npm run lint
 
 ### Tests
 
-While the scaffolding is set up for testing, no tests were written as I didn't want to spend more than about 8 hours working on this as specced in the instructions
+The test suit is using Jest and babel to test the vue single file components
+
+```
+npm run test
+```
 
