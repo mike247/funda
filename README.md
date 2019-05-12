@@ -1,5 +1,7 @@
 # funda_code_challange
-This is my code example for the funda demo
+This is my example code for the funda front end challange
+
+First of all clone the repo
 
 ## Project setup
 To install the npm dependencies run command
