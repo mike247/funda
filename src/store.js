@@ -7,10 +7,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     houseData: false,
-    apiAccessKey: 'ac1b0b1572524640a0ecc54de453ea9f',
-    houseId: '6289a7bb-a1a8-40d5-bed1-bff3a5f62ee6',
-    houseError: false,
-    disableGetHouseButton: false
+    apiAccessKey: process.env.VUE_APP_FUNDA_API_ACCESS_KEY, // Kept in .env.development
+    houseId: '6289a7bb-a1a8-40d5-bed1-bff3a5f62ee6', // Default ID given to me in the challange
+    houseError: false
   },
   actions: {
     updateAccessKey ({ commit }, key) {
@@ -25,19 +24,14 @@ export default new Vuex.Store({
     updateHouseError ({ commit }, error) {
       commit('setHouseError', error)
     },
-    updateDisableGetHouseButton ({ commit }, disable) {
-      commit('setDisableGetHouseButton', disable)
-    },
     async getHouseData ({ dispatch, state }) {
       try {
-        dispatch('updateDisableGetHouseButton', true)
         dispatch('updateHouseError', false)
         const houseData = await fundaApi.getHouseData(state.apiAccessKey, state.houseId)
         dispatch('updateHouseData', houseData.data)
       } catch (e) {
         dispatch('updateHouseData', false)
         dispatch('updateHouseError', true)
-        dispatch('updateDisableGetHouseButton', false)
       }
     }
   },
@@ -53,9 +47,6 @@ export default new Vuex.Store({
     },
     setHouseError (state, error) {
       state.houseError = error
-    },
-    setDisableGetHouseButton (state, disable) {
-      state.disableGetHouseButton = disable
     }
   }
 })

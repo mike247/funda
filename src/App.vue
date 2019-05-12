@@ -7,12 +7,7 @@
 </template>
 
 <script>
-export default {
-  data: () => ({
-    drawer: null
-  }),
-  props: {
-    source: String
+  export default {
+    name: 'App'
   }
-}
 </script>
