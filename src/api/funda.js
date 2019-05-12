@@ -11,11 +11,9 @@ const GET = (http, url) => {
     return http.get(url).then(res => {
       return res
     }).catch(e => {
-      console.error(e)
       throw e
     })
   } catch (e) {
-    console.error(e)
     throw (e)
   }
 }
