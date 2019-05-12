@@ -1,7 +1,7 @@
 <template>
   <v-card class="mapSearchBox-position mapSearchBox-size">
     <v-container pb-0 pt-2>
-      <v-form>
+      <v-form @submit="submitSearch">
         <v-text-field :label="label" v-model="searchState" append-outer-icon="search" @click:append-outer="submitSearch"
           :error="error">
         </v-text-field>
@@ -18,7 +18,16 @@
   }
 
   .mapSearchBox-size {
-    width: 500px;
+    max-width: 500px;
+    width: 44%;
+  }
+
+  @media (max-width: 720px) {
+    .mapSearchBox-size {
+      max-width: 100%;
+      width: calc(100% - 20px);
+      /* Keep a gutter of 10px on each side left and right */
+    }
   }
 </style>
 <script>
@@ -42,7 +51,10 @@
       }
     },
     methods: {
-      submitSearch: function () {
+      submitSearch: function (e) {
+        if (e) {
+          e.preventDefault()
+        }
         this.$store.dispatch(this.searchAction)
       }
     }
