@@ -8,7 +8,7 @@ export default new Vuex.Store({
   state: {
     houseData: false,
     apiAccessKey: process.env.VUE_APP_FUNDA_API_ACCESS_KEY, // Kept in .env.development
-    houseId: '6289a7bb-a1a8-40d5-bed1-bff3a5f62ee6', // Default ID given to me in the challange
+    houseId: '6289a7bb-a1a8-40d5-bed1-bff3a5f62ee6', // Default ID given to me in the challenge
     houseError: false
   },
   actions: {
