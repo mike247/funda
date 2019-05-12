@@ -50,10 +50,10 @@
       houseDataFound: function () {
         return !!this.houseData
       },
-      houseInfo: function () {
+      houseInfo: function () { // This is a custom mapping from the incomming json to the format I want to use in my components
         return {
           title: this.houseData.Adres,
-          price: this.houseData.Huurprijs || this.houseData.KoopPrijs, // House rental pirce || House asking price, I couldnt find a flag in the json which explcitly tells us this, but it might have been there
+          price: this.houseData.Huurprijs || this.houseData.KoopPrijs, // House rental pirce || House asking price
           livingArea: this.houseData.WoonOppervlakte,
           description: `${this.houseData.VolledigeOmschrijving.split(' ').slice(0, 40).join(' ')}...`,
           url: this.houseData.URL,
