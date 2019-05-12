@@ -7,7 +7,7 @@
         </template>
         <template v-slot:header>
           <v-layout align-baseline wrap>
-            <h4 class="headline pr-2">{{title}}</h4>
+            <h2 class="headline pr-2">{{title}}</h2>
             <span v-if="price" class="headline pr-2">- &euro;{{price.toLocaleString()}}</span>
             <span v-if="livingArea" class="subheading">{{livingArea}} m &sup2;</span>
           </v-layout>
@@ -25,7 +25,7 @@
                   class="body2 grey--text text--lighten-1 d-inline-block mapInfoBox_feature_name-size ">{{feature.Naam}}:
                 </span>
                 <span class="body2 d-inline-block mapInfoBox_feature_value-size" v-html="feature.Waarde"></span>
-                <!-- This is usually a no-no (unescaped html) but since this data is coming from a trusted source and I cant find any non-formatted versions of this information im doing it here -->
+                <!-- This is usually a no-no (unescaped html) but since this data is coming from a trusted source and I cant find any non-formatted versions of this information in the json im doing it here -->
               </div>
             </v-layout>
             <v-divider></v-divider>
