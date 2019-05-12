@@ -3,7 +3,7 @@
     <map-search-box label="House ID" stateField="houseId" updateStateAction="updateHouseId" searchAction="getHouseData"
       :error="houseError">
     </map-search-box>
-    <map-house-info v-if="houseDataFound"></map-house-info>
+    <map-house-info v-if="houseDataFound" v-bind="houseInfo"></map-house-info>
     <google-map :options="googleMapOptions" :zoom="mapZoom" :center="mapCenter" :showMarker="houseDataFound">
     </google-map>
   </v-layout>
@@ -49,6 +49,16 @@
       },
       houseDataFound: function () {
         return !!this.houseData
+      },
+      houseInfo: function () {
+        return {
+          title: this.houseData.Adres,
+          price: this.houseData.Huurprijs || this.houseData.KoopPrijs, // House rental pirce || House asking price, I couldnt find a flag in the json which explcitly tells us this, but it might have been there
+          livingArea: this.houseData.WoonOppervlakte,
+          description: `${this.houseData.VolledigeOmschrijving.split(' ').slice(0, 40).join(' ')}...`,
+          url: this.houseData.URL,
+          shortFeatures: this.houseData.KenmerkenKort.Kenmerken
+        }
       }
     }
   }
