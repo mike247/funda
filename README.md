@@ -37,6 +37,8 @@ To run the back end, in a seperate terminal run
 npm run start-server
 ```
 
+Then proceed to http://localhost:8080/ to view the site (or whatever address and port the front end service is using)
+
 
 ### Lints and fixes files
 ```
