@@ -26,7 +26,7 @@
         googleMapOptions: {
           fullscreenControl: false,
           mapTypeControlOptions: {
-            position: 3 // Google Map Top right
+            position: 6 // Google Map bottom left
           }
         }
       }
