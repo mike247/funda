@@ -1,17 +1,35 @@
 <template>
   <v-card class="mapInfoBox-position mapInfoBox-size">
-    <v-expansion-panel>
+    <v-expansion-panel :value="expanded">
       <v-expansion-panel-content>
         <template v-slot:actions>
           <v-icon color="primary">$vuetify.icons.expand</v-icon>
         </template>
         <template v-slot:header>
-          <span>stuff</span>
+          <v-layout align-baseline>
+            <span class="headline pr-2">{{title}}</span>
+            <span v-if="price" class="headline pr-2">- &euro;{{price.toLocaleString()}}</span>
+            <span v-if="livingArea" class="subheading">{{livingArea}} m &sup2;</span>
+          </v-layout>
         </template>
         <v-card>
-          <v-card-text class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-            ullamco laboris nisi ut aliquip ex ea commodo consequat.</v-card-text>
+          <v-container fluid pt-2 pb-0>
+            <v-layout column align-center>
+              <p class="mb-0">{{description}}</p>
+              <v-btn flat small color="primary" :href="url" target="_blank">Read More</v-btn>
+            </v-layout>
+            <v-divider></v-divider>
+            <v-layout column mt-3>
+              <div v-for="(feature, index) in shortFeatures" :key="index" class="mb-1">
+                <span
+                  class="body2 grey--text text--lighten-1 d-inline-block mr-2 mapInfoBox_feature_name-size ">{{feature.Naam}}:
+                </span>
+                <span class="body2 mapInfoBox_feature_value-size" v-html="feature.Waarde"></span>
+                <!-- This is usually a no-no (unescaped html) but since this data is coming from a trusted source and I cant find any non formatted versions of this information im doing it here -->
+              </div>
+            </v-layout>
+          </v-container>
+
         </v-card>
       </v-expansion-panel-content>
     </v-expansion-panel>
@@ -28,9 +46,26 @@
   .mapInfoBox-size {
     width: 500px;
   }
+
+  .mapInfoBox_feature_name-size {
+    width: 30%;
+  }
 </style>
 <script>
   export default {
-    name: 'MapHouseInfo'
+    name: 'MapHouseInfo',
+    props: {
+      title: String,
+      price: Number,
+      livingArea: Number,
+      description: String,
+      url: String,
+      shortFeatures: Array
+    },
+    data: function () {
+      return {
+        expanded: 0
+      }
+    }
   }
 </script>
