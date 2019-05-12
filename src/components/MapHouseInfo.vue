@@ -22,7 +22,7 @@
             <v-layout column mt-2>
               <div v-for="(feature, index) in shortFeatures" :key="index" class="mb-1 d-flex">
                 <span
-                  class="body2 grey--text text--lighten-1 d-inline-block mr-2 mapInfoBox_feature_name-size ">{{feature.Naam}}:
+                  class="body2 grey--text text--lighten-1 d-inline-block mapInfoBox_feature_name-size ">{{feature.Naam}}:
                 </span>
                 <span class="body2 d-inline-block mapInfoBox_feature_value-size" v-html="feature.Waarde"></span>
                 <!-- This is usually a no-no (unescaped html) but since this data is coming from a trusted source and I cant find any non-formatted versions of this information im doing it here -->
@@ -60,7 +60,7 @@
   }
 
   .mapInfoBox_feature_name-size {
-    width: 115px;
+    width: 125px;
   }
 
   .mapInfoBox_feature_value-size {

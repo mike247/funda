@@ -6,22 +6,25 @@ To install the npm dependencies run command
 ```
 npm install
 ```
+### Api Keys
+This app uses google maps and the funda API - it therefore requires a google maps api Key and a funda access key.
 
-This app uses google maps and therefore requires a google maps api Key.
-
-For security reasons this is not stored in the repo
+For security reasons these are not stored in the repo
 
 To set this up complete the following steps
 
  1) Create a '.env.development' file at the root level of the repo
  2) add 'VUE_APP_GOOGLE_API_KEY=' to the first line
- 3) Paste an api Key with permissions to access the google maps JS api after the '='
+ 3) add 'VUE_APP_FUNDA_API_ACCESS_KEY=' to the second line
+ 4) Paste in a google api Key with permissions to access the google maps JS for the first env var
+ 5) Past in a funda access key with permissions to access the funda api for the second env var
 
 ```
-VUE_APP_GOOGLE_API_KEY=123awkn1231
+VUE_APP_GOOGLE_API_KEY=googleApiKey
+VUE_APP_FUNDA_API_ACCESS_KEY=fundaAccessKey
 ```
 
-### To Run
+## To Run
 After going through project setup, to compile and hot load the front end run
 ```
 npm run serve
@@ -37,4 +40,8 @@ npm run start-server
 ```
 npm run lint
 ```
+
+### Tests
+
+While the scaffolding is set up for testing, no tests were written as I didn't want to spend more than about 8 hours working on this as specced in the instructions
 
