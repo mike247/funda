@@ -57,7 +57,13 @@
           livingArea: this.houseData.WoonOppervlakte,
           description: `${this.houseData.VolledigeOmschrijving.split(' ').slice(0, 40).join(' ')}...`,
           url: this.houseData.URL,
-          shortFeatures: this.houseData.KenmerkenKort.Kenmerken
+          shortFeatures: this.houseData.KenmerkenKort.Kenmerken,
+          photos: this.houseData['Media-Foto'].map(photo => {
+            return {
+              small: photo,
+              large: photo.replace('klein', 'groot')
+            }
+          })
         }
       }
     }
