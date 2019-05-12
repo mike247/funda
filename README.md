@@ -16,8 +16,10 @@ To set this up complete the following steps
  1) Create a '.env.development' file at the root level of the repo
  2) add 'VUE_APP_GOOGLE_API_KEY=' to the first line
  3) add 'VUE_APP_FUNDA_API_ACCESS_KEY=' to the second line
- 4) Paste in a google api Key with permissions to access the google maps JS for the first env var
+ 4) Paste in a google api Key with permissions to access the google maps JS API for the first env var
  5) Past in a funda access key with permissions to access the funda api for the second env var
+
+ (If you are recieving this at Funda, I will have emailed over the two required keys)
 
 ```
 VUE_APP_GOOGLE_API_KEY=googleApiKey
