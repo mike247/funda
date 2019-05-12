@@ -1,9 +1,10 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    node: true,
+    jest: true
   },
-  'extends': [
+  extends: [
     'plugin:vue/essential',
     '@vue/standard'
   ],
@@ -15,11 +16,11 @@ module.exports = {
   parserOptions: {
     parser: 'babel-eslint'
   },
-  'overrides': [
+  overrides: [
     {
-      'files': ['*.vue'],
-      'rules': {
-        'indent': 'off'
+      files: ['*.vue'],
+      rules: {
+        indent: 'off'
       }
     }
   ]
