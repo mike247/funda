@@ -28,8 +28,13 @@
                 <!-- This is usually a no-no (unescaped html) but since this data is coming from a trusted source and I cant find any non formatted versions of this information im doing it here -->
               </div>
             </v-layout>
+            <v-divider></v-divider>
+            <v-container pr-0 pl-0>
+              <v-carousel :cycle="false" :hide-delimiters="true" height="auto">
+                <v-carousel-item v-for="(photo, index) in photos" :key="index" :src="photo.large"></v-carousel-item>
+              </v-carousel>
+            </v-container>
           </v-container>
-
         </v-card>
       </v-expansion-panel-content>
     </v-expansion-panel>
@@ -60,7 +65,8 @@
       livingArea: Number,
       description: String,
       url: String,
-      shortFeatures: Array
+      shortFeatures: Array,
+      photos: Array
     },
     data: function () {
       return {
