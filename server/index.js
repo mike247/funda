@@ -3,7 +3,7 @@
 // This is a very simple server purely set up to get around the cors issue
 // most of the code came from here https://hapijs.com/tutorials#installing
 // This is in no way a reflection of what a proper service would look like or be coded like
-// as this is a front end task I didn't want to spend too long on this doing it super properly
+// as this is a front end task and I didn't want to spend too long on this doing it super properly
 
 const Hapi = require('@hapi/hapi')
 const axios = require('axios')
