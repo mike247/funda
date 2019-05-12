@@ -1,5 +1,5 @@
-# funda_code_challange
-This is my example code for the funda front end challange
+# funda_code_challenge
+This is my example code for the funda front end challenge
 
 First of all clone the repo
 

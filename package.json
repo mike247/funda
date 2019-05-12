@@ -1,6 +1,6 @@
 {
-  "name": "funda_code_challange",
-  "version": "0.16.0",
+  "name": "funda_code_challenge",
+  "version": "0.16.1",
   "scripts": {
     "serve": "vue-cli-service serve",
     "start-server": "node ./server/index",
