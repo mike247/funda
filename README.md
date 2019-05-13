@@ -29,7 +29,7 @@ VUE_APP_FUNDA_API_ACCESS_KEY=fundaAccessKey
 ```
 
 ## To Run
-After going through project setup, to compile and hot load the front end run
+After going through project setup, to build and serve the front end run
 ```
 npm run serve
 ```
@@ -40,6 +40,8 @@ npm run start-server
 ```
 
 Then proceed to http://localhost:8080/ to view the site (or whatever address and port the front end service is using)
+
+You need both the front end running and the back end mini service for everything to work properly.
 
 
 ### Lints and fixes files
